@@ -10,10 +10,18 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+import sample.Dice;
+
 public class Main extends Application {
+
+    public static void main(String[] args) {
+        launch(args);
+    }
+
 
     Label overAllScore, curHighest, curHighestLabel, rollsRem;
     Button rollButton, refreshButton;
+    
     int rollCount = 2;
     int roundScore = 0;
 
@@ -79,7 +87,6 @@ public class Main extends Application {
         rollButton.setMinWidth(100);
         rollButton.setOnAction(event -> {
             dice1.diceSlot.setVisible(true);
-            //dice1.diceSlot.
             dice2.diceSlot.setVisible(true);
             dice3.diceSlot.setVisible(true);
             dice4.diceSlot.setVisible(true);
@@ -115,7 +122,7 @@ public class Main extends Application {
         primaryStage.show();
     }
 
-
+    
     public class Game {
 
         void playGame(Dice dice1, Dice dice2, Dice dice3, Dice dice4, Dice dice5){
@@ -184,10 +191,7 @@ public class Main extends Application {
                 }
             });
 
-
         }
-
-
         void updateCurrDisplay(int roundScore){
 
             switch(roundScore){
@@ -219,10 +223,6 @@ public class Main extends Application {
             }
 
         }
-    }
 
-
-    public static void main(String[] args) {
-        launch(args);
     }
 }
