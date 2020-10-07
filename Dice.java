@@ -6,15 +6,18 @@ import javafx.scene.image.ImageView;
 import java.util.Random;
 
 public class Dice {
+
     int diceValue;
     int held = 0;// 1 if held, 0 if not
     int diceIndex;
+
     Image diceImage;
     ImageView diceSlot;
 
     void createInit() {
         diceImage = new Image("file:./res/Dice1.png");
         diceSlot = new ImageView(diceImage);
+
         diceSlot.setPreserveRatio(true);
         diceSlot.setFitWidth(100);
         diceSlot.setVisible(false);
@@ -25,30 +28,27 @@ public class Dice {
         if (diceValue == 1) {
             diceImage = new Image("file:./res/Dice1.png");
             diceSlot.setImage(diceImage);
-            System.out.println("done1");
-        } else if (diceValue == 2) {
+        }
+        else if (diceValue == 2) {
             diceImage = new Image("file:./res/Dice2.png");
             diceSlot.setImage(diceImage);
-            System.out.println("done2");
-        } else if (diceValue == 3) {
+        }
+        else if (diceValue == 3) {
             diceImage = new Image("file:./res/Dice3.png");
             diceSlot.setImage(diceImage);
-            System.out.println("done3");
-        } else if (diceValue == 4) {
+        }
+        else if (diceValue == 4) {
             diceImage = new Image("file:./res/Dice4.png");
             diceSlot.setImage(diceImage);
-            System.out.println("done4");
-        } else if (diceValue == 5) {
+        }
+        else if (diceValue == 5) {
             diceImage = new Image("file:./res/Dice5.png");
             diceSlot.setImage(diceImage);
-            System.out.println("done5");
-        } else {
+        }
+        else {
             diceImage = new Image("file:./res/Dice6.png");
             diceSlot.setImage(diceImage);
-            System.out.println("done6");
         }
-
-
     }
 
     void updatePic() {
@@ -59,7 +59,8 @@ public class Dice {
                     diceImage = new Image("file:./res/Dice1Held.png");
                     diceSlot.setImage(diceImage);
                     held = 1;
-                } else {
+                }
+                else {
                     diceImage = new Image("file:./res/Dice1.png");
                     diceSlot.setImage(diceImage);
                     held = 0;
@@ -70,7 +71,8 @@ public class Dice {
                     diceImage = new Image("file:./res/Dice2Held.png");
                     diceSlot.setImage(diceImage);
                     held = 1;
-                } else {
+                }
+                else {
                     diceImage = new Image("file:./res/Dice2.png");
                     diceSlot.setImage(diceImage);
                     held = 0;
@@ -81,7 +83,8 @@ public class Dice {
                     diceImage = new Image("file:./res/Dice3Held.png");
                     diceSlot.setImage(diceImage);
                     held = 1;
-                } else {
+                }
+                else {
                     diceImage = new Image("file:./res/Dice3.png");
                     diceSlot.setImage(diceImage);
                     held = 0;
@@ -92,7 +95,8 @@ public class Dice {
                     diceImage = new Image("file:./res/Dice4Held.png");
                     diceSlot.setImage(diceImage);
                     held = 1;
-                } else {
+                }
+                else {
                     diceImage = new Image("file:./res/Dice4.png");
                     diceSlot.setImage(diceImage);
                     held = 0;
@@ -103,7 +107,8 @@ public class Dice {
                     diceImage = new Image("file:./res/Dice5Held.png");
                     diceSlot.setImage(diceImage);
                     held = 1;
-                } else {
+                }
+                else {
                     diceImage = new Image("file:./res/Dice5.png");
                     diceSlot.setImage(diceImage);
                     held = 0;
@@ -114,7 +119,8 @@ public class Dice {
                     diceImage = new Image("file:./res/Dice6Held.png");
                     diceSlot.setImage(diceImage);
                     held = 1;
-                } else {
+                }
+                else {
                     diceImage = new Image("file:./res/Dice6.png");
                     diceSlot.setImage(diceImage);
                     held = 0;
@@ -124,11 +130,12 @@ public class Dice {
                 System.out.println("DEBUG-ERROR");
                 break;
         }
-
     }
 
     void createRandomStart(Dice dice1, Dice dice2, Dice dice3, Dice dice4, Dice dice5) {
+
         Random randNum = new Random();
+
         dice1.diceValue = 1 + randNum.nextInt(6);
         dice2.diceValue = 1 + randNum.nextInt(6);
         dice3.diceValue = 1 + randNum.nextInt(6);
@@ -140,8 +147,6 @@ public class Dice {
         dice3.setDiePic();
         dice4.setDiePic();
         dice5.setDiePic();
-
-
     }
 
     void checkIfRollDie(){
@@ -151,9 +156,7 @@ public class Dice {
             diceValue = 1 + randNum.nextInt(6);
             held = 1;
             this.updatePic();
-
         }
-
     }
 
     int findCurrScore(Dice dice1, Dice dice2, Dice dice3, Dice dice4, Dice dice5){
@@ -211,7 +214,6 @@ public class Dice {
         }
 
         // 2 of a kind
-        // should catch, otherwise error here
         else if(found1 == 2  || found2 == 2 || found3 == 2 || found4 == 2 || found5 == 2 || found6 == 2){
             return 1;
         }
@@ -246,7 +248,5 @@ public class Dice {
         }
         return array;
     }
-
-
 
 }
